@@ -14,8 +14,10 @@ makeRows(16, 16)
 
 const cells = container.childNodes;
 
+let color = "red";
+
 cells.forEach(cell => {
     cell.addEventListener('mouseover', function() {
-        cell.classList.add('hover');
+        cell.style['background-color'] = color;
     });
 });
