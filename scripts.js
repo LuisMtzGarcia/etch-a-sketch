@@ -38,13 +38,20 @@ function getGridSize() {
     return gridSize;
 }
 
+/**
+ * Creates a grid of square divs. The sketchpad.
+ */
+function createGrid() {
+    let gridSize = getGridSize();
+    makeRows(gridSize, gridSize);
+}
+
 const container = document.getElementById("container");
 
 const size = document.getElementById("size");
 
 size.addEventListener('click', function() {
-    let gridSize = getGridSize();
-    makeRows(gridSize, gridSize);
+    createGrid();
     const cells = container.childNodes;
 
     let color = "red";
