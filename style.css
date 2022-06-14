@@ -5,6 +5,8 @@
 
 #container {
     display: grid;
+    width: 960px;
+    height: auto;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
