@@ -24,6 +24,20 @@ function cleanGrid() {
     }
 }
 
+/**
+ * Prompts for the grid size and cleans the previously generated grid.
+ */
+function getGridSize() {
+    let gridSize = prompt("How big should the grid be? Below 100, format: IntXInt");
+    gridSize = parseInt(gridSize);
+    if (gridSize > 100) {
+        alert("Numbers below 100, try again.")
+        gridSize = getGridSize();
+    } else {
+        cleanGrid();
+    }
+}
+
 const container = document.getElementById("container");
 
 const size = document.getElementById("size");
@@ -32,6 +46,9 @@ size.addEventListener('click', function() {
     let gridSize = prompt("How big the grid?: ");
     cleanGrid();
     gridSize = parseInt(gridSize);
+    if (gridSize > 100) {
+        gridSize = prompt("Numbers below 100 only: ")
+    }
     makeRows(gridSize, gridSize);
     const cells = container.childNodes;
 
