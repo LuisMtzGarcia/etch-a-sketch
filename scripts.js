@@ -33,9 +33,9 @@ function getGridSize() {
     if (gridSize > 100) {
         alert("Numbers below 100, try again.")
         gridSize = getGridSize();
-    } else {
-        cleanGrid();
     }
+    cleanGrid();
+    return gridSize;
 }
 
 const container = document.getElementById("container");
