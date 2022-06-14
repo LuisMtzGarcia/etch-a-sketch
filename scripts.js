@@ -4,7 +4,6 @@
  * @param {int} cols 
  */
  function makeRows(rows, cols) {
-    console.log("Working");
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (c = 0; c < (rows * cols); c++) {
@@ -14,18 +13,24 @@
     };
 };
 
+/**
+ * Deletes all the previously created cells, effectively 'cleaning' the page.
+ */
+function cleanGrid() {
+    let child = container.lastElementChild;
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+}
+
 const container = document.getElementById("container");
 
 const size = document.getElementById("size");
 
 size.addEventListener('click', function() {
     let gridSize = prompt("How big the grid?: ");
-    let child = container.lastElementChild;
-    while (child) {
-        container.removeChild(child);
-        child = container.lastElementChild;
-    }
-    console.log(gridSize)
+    cleanGrid();
     gridSize = parseInt(gridSize);
     makeRows(gridSize, gridSize);
     const cells = container.childNodes;
