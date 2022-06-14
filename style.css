@@ -14,3 +14,13 @@
     /*border: 1px solid #ddd;*/
     text-align: center;
 }
+
+/*
+.grid-item:hover {
+    background-color: red;
+}
+*/
+
+.hover {
+    background-color: red;
+}

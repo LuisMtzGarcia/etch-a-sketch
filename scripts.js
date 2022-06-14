@@ -11,3 +11,11 @@ function makeRows(rows, cols) {
 };
 
 makeRows(16, 16)
+
+const cells = container.childNodes;
+
+cells.forEach(cell => {
+    cell.addEventListener('mouseover', function() {
+        cell.classList.add('hover');
+    });
+});
