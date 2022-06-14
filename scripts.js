@@ -46,6 +46,16 @@ function createGrid() {
     makeRows(gridSize, gridSize);
 }
 
+/**
+ * Obtains a random RBGA color.
+ * @returns RGBA string
+ */
+function randomRGBA() {
+    let o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + 
+        r().toFixed(1) + ')';
+}
+
 const container = document.getElementById("container");
 
 const size = document.getElementById("size");
@@ -54,11 +64,9 @@ size.addEventListener('click', function() {
     createGrid();
     const cells = container.childNodes;
 
-    let color = "red";
-
     cells.forEach(cell => {
         cell.addEventListener('mouseover', function() {
-            cell.style['background-color'] = color;
+            cell.style['background-color'] = randomRGBA();
         });
     });
 })
