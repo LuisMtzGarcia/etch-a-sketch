@@ -1,6 +1,10 @@
-const container = document.getElementById("container");
-
-function makeRows(rows, cols) {
+/**
+ * Creates a grid of square divs.
+ * @param {int} rows 
+ * @param {int} cols 
+ */
+ function makeRows(rows, cols) {
+    console.log("Working");
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (c = 0; c < (rows * cols); c++) {
@@ -10,14 +14,28 @@ function makeRows(rows, cols) {
     };
 };
 
-makeRows(16, 16)
+const container = document.getElementById("container");
 
-const cells = container.childNodes;
+const size = document.getElementById("size");
 
-let color = "red";
+size.addEventListener('click', function() {
+    let gridSize = prompt("How big the grid?: ");
+    let child = container.lastElementChild;
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+    console.log(gridSize)
+    gridSize = parseInt(gridSize);
+    makeRows(gridSize, gridSize);
+    const cells = container.childNodes;
 
-cells.forEach(cell => {
-    cell.addEventListener('mouseover', function() {
-        cell.style['background-color'] = color;
+    let color = "red";
+
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', function() {
+            cell.style['background-color'] = color;
+        });
     });
-});
+})
+
